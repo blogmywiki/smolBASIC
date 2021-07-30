@@ -4,7 +4,6 @@
 # automatically assigns and inputs numbers as integers and everything else as strings
 # TO DO:
 # add access to sensors
-# add beep
 # add speech?
 # add a function to verify variable names and convert them to an index number
 # add ability to perfrom mathematical functions on variables
