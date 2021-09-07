@@ -24,16 +24,80 @@ and they have written and executed a text-based program and sequence without wor
 
 Read my initial blog post and watch the video here: http://www.suppertime.co.uk/blogmywiki/2021/07/simple-text-language/
 
+## What's the instruction set?
+
+Enter instructions and they don't run immediately as they would at a BASIC prompt or Python REPL. Instead they get stored in a program, which you then run by typing `run`
+
+### LED display
+Show images / icons just by typing their name, eg
+```
+heart
+happy
+sad
+confused
+meh
+angry 
+asleep
+confused
+yes
+no
+duck
+small heart
+pacman
+ghost
+skull
+rabbit
+diamond
+small diamond
+star
+```
+
+Scroll text on the LED display with 
+`scroll hello world`
+
+I think it has just enough to be 'Turing complete', but happy to be corrected.
+
 ## Why 'smolBASIC'?
 It's smoller than TinyBASIC.
 
 ## What you need to run it
-- A BBC micro:bit (it's currently still small enough to run on a V1)
+- A BBC micro:bit V2 with built-in speaker (alas, it's now not smol enough to run on a V1)
 - A micro USB cable
 - A computer with either serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new alpha editor https://python.microbit.org/v/alpha or any serial console like https://googlechromelabs.github.io/serial-terminal/
 
 ## How to start it up
-- Flash the .py or .hex file to a BBC micro:bit (V2 only now, it's too big for a V1)
+- Flash the .py or .hex file to a BBC micro:bit V2
 - Open a serial console, either the REPL in one of the micro:bit Python editors or any other serial console
 - Type 'help' and press enter to see a list of instructions
 - Type commands and run them!
+
+## Sample programs
+
+### Voting age
+```
+0 print enter your age
+1 input a
+2 b=17
+3 if a>b goto 6
+4 print you are too young to vote
+5 stop
+6 print you can vote
+```
+
+### Guess the number 
+```
+0 random a 10
+1 print guess my number 1-10
+2 input b
+3 if a=b goto 6
+4 if a>b goto 8
+5 if a<b goto 10
+6 print correct!
+7 stop
+8 print too low!
+9 goto 1
+10 print too high!
+11 goto 1
+```
+
+
