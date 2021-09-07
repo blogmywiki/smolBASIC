@@ -7,6 +7,8 @@ A very simple text-based programming language for the BBC micro:bit, written in 
 ## Tell me more, tell me more
 smolBASIC could be a child's first text-based programming language, but it's also simple enough students can modify it themselves, for example adding instructions to show more images or access more sensors on the micro:bit or play more sounds. It could be used in KS3 in England to satisfy the requirement to teach a text-based language, and it could be accessible to more students than other, more complex languages.
 
+Its sheer simplicty also allows students to access some of the clarity of thought that comes with learning assembly language or machine code, but without having to learn hexadecimal, binary or memorise op codes.
+
 As a first text-based langauge, it aims to be as simple as possible, so it avoids punctuation like quotation marks around strings or brackets that students find hard to type.
 
 Programs have no line numbers when entered, but lines do have numbers when listed (mainly to allow 'goto' statements to work).
@@ -138,6 +140,9 @@ It's smoller than TinyBASIC.
 - Open a serial console, either the REPL in one of the micro:bit Python editors or any other serial console
 - Type 'help' and press enter to see a list of instructions
 - Type commands and run them!
+
+## To-do list
+There's lots I could add, but I don't want to add too much - it needs to be super-simple. One thing that certainly must be added is the ability to increment and decrement variables as a way into coding simple loops.
 
 ## Sample programs
 
