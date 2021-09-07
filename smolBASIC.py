@@ -1,3 +1,4 @@
+# v18 name change
 # v17 adds random
 # v16 adds beep
 # v15 adds conditional goto on comparison of variables and stop instruction
@@ -8,6 +9,7 @@
 # add a function to verify variable names and convert them to an index number
 # add ability to perfrom mathematical functions on variables
 # increment / decrement variables
+# DONE
 # possible 'if' syntax: if a=b goto 12; also allow > <
 # only allow comparison with variables; line must start 'if '; 1st variable always at char 3; 
 # comparison operator at char 4; second variable at char 5; line number always follows split at char 11/12
@@ -21,7 +23,7 @@ program_counter = -1
 variables = [None]*26
 
 def help():
-    print('MI:LITTLE CODER')
+    print('smolBASIC')
     print('Type image names and then \'run\' to display them.')
     print('\'scroll hello\' scrolls hello on LED display.')
     print('\'beep A\' plays the note A')
@@ -156,7 +158,7 @@ def parse(instruction):
     else:
         display.show('?')
 
-print('MI:LITTLE CODER')
+print('smolBASIC')
 print('Type \'help\' for a list of commands.')
     
 while True:
