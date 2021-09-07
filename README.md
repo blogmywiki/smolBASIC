@@ -22,6 +22,8 @@ run
 ```
 and they have written and executed a text-based program and sequence without worrying about line numbers, capital letters or punctuation.
 
+Despite being so simple, it lets you save smolBASIC programs to the micro:bit's non-volatile memory, so you don't lose your work (if you remember to save it!)
+
 Read my initial blog post and watch the video here: http://www.suppertime.co.uk/blogmywiki/2021/07/simple-text-language/
 
 ## What's the instruction set?
@@ -52,10 +54,76 @@ small diamond
 star
 ```
 
-Scroll text on the LED display with 
-`scroll hello world`
+It's easy for students to add their own image instructions to the language.
 
-I think it has just enough to be 'Turing complete', but happy to be corrected.
+Scroll text on the LED display with 
+```
+scroll hello world
+```
+
+### Variables
+
+You can have 26 variables. They have single letter names a - z.
+
+Assign a variable with
+```
+a=23
+```
+
+You can get user input using
+```
+input b
+```
+
+Assign a random number between 1 and 99 to a variable with 
+```
+random a 99
+```
+
+### Branching and flow control
+
+smolBASIC has a goto instruction:
+```
+if a>b goto 6
+```
+
+It supports <, > and = as operators.
+
+Stop a program executing with
+```
+stop
+```
+
+### Editing and running programs
+
+Delete the current program with `new`
+
+You can delete line 3 with `del 3`
+
+Edit line 3 by typing the line number and what you now want it to read, eg
+```
+3 happy
+```
+
+Run a program with `run`
+
+Break out of a program with ctrl-C on the host computer.
+
+### Sound
+Play note A with
+```
+beep A
+```
+At the moment no note duration can be set.
+
+
+### Saving and loading programs
+
+Save the current program to non-volatile memory with `save`
+
+Restore the saved program with `load`
+
+I think smolBASIC has just enough instructions to be 'Turing complete', but I'm happy to be corrected.
 
 ## Why 'smolBASIC'?
 It's smoller than TinyBASIC.
@@ -63,7 +131,7 @@ It's smoller than TinyBASIC.
 ## What you need to run it
 - A BBC micro:bit V2 with built-in speaker (alas, it's now not smol enough to run on a V1)
 - A micro USB cable
-- A computer with either serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new alpha editor https://python.microbit.org/v/alpha or any serial console like https://googlechromelabs.github.io/serial-terminal/
+- A computer with either USB serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new alpha editor https://python.microbit.org/v/alpha or an online serial console like https://googlechromelabs.github.io/serial-terminal/
 
 ## How to start it up
 - Flash the .py or .hex file to a BBC micro:bit V2
