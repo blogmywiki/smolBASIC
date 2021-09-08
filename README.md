@@ -146,6 +146,7 @@ There's lots I could add, but I don't want to add too much - it needs to be supe
 
 - [ ] must add the ability to increment and decrement variables as a way into coding simple loops. Suggest `a+1` and `a-1` as a minimum way of doing it, rather than the opaque +=1 or apparently contradictory a=a+1
 - [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion.
+- [ ] More general and better exception handling - at the moment if you trigger an exception, you lose your code (unless it's saved).
 
 ## Sample programs
 
