@@ -142,7 +142,10 @@ It's smoller than TinyBASIC.
 - Type commands and run them!
 
 ## To-do list
-There's lots I could add, but I don't want to add too much - it needs to be super-simple. One thing that certainly must be added is the ability to increment and decrement variables as a way into coding simple loops.
+There's lots I could add, but I don't want to add too much - it needs to be super-simple. For example, I know my Python is shonky and inconsistent, but if it's improved it still needs to be readable by a student new to Python.
+
+[] must add the ability to increment and decrement variables as a way into coding simple loops. Suggest `a+1` and `a-1` as a minimum way of doing it, rather than the opaque +=1 or apparently contradictory a=a+1
+[] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion.
 
 ## Sample programs
 
