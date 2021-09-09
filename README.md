@@ -82,6 +82,10 @@ Assign a random number between 1 and 99 to a variable with
 random a 99
 ```
 
+### Maths operations
+Maths operations can only be performed on variables and must be in the format a=b*c.
+Only +, -, / and * are supported.
+
 ### Branching and flow control
 
 smolBASIC has a goto instruction:
@@ -144,8 +148,8 @@ It's smoller than TinyBASIC.
 ## To-do list
 There's lots I could add, but I don't want to add too much - it needs to be super-simple. For example, I know my Python is shonky and inconsistent, but if it's improved it still needs to be readable by a student new to Python.
 
-- [ ] must add the ability to increment and decrement variables as a way into coding simple loops. Suggest `a+1` and `a-1` as a minimum way of doing it, rather than the opaque +=1 or apparently contradictory a=a+1
-- [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion.
+- [ ] must add the ability to increment and decrement variables as a way into coding simple loops. Suggest `a+1` and `a-1` as a minimum way of doing it, rather than the opaque +=1 or apparently contradictory a=a+1. At the moment you can increment a variable by setting a to 1 and using `b=b+a`
+- [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion. I have added the ability to do maths operations on variables.
 - [ ] More general and better exception handling - at the moment if you trigger an exception, you lose your code (unless it's saved).
 
 ## Sample programs
