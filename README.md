@@ -83,7 +83,8 @@ random a 99
 ```
 
 ### Maths operations
-Maths operations can only be performed on variables and must be in the format a=b*c.
+Maths operations can only be performed on variables and must be in the format `a=b*c`
+
 Only +, -, / and * are supported.
 
 ### Branching and flow control
