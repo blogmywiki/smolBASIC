@@ -1,18 +1,11 @@
-# v18 name change
-# v17 adds random
-# v16 adds beep
-# v15 adds conditional goto on comparison of variables and stop instruction
-# automatically assigns and inputs numbers as integers and everything else as strings
+# v19 adds very basic maths operations
+# maths operations can only be performed on variables and must be in the format a=b*c
+# Only +, -, / and * are supported
 # TO DO:
 # add access to sensors
 # add speech?
-# add a function to verify variable names and convert them to an index number
-# add ability to perfrom mathematical functions on variables
+# add a function to verify variable names and convert them to an index number
 # increment / decrement variables
-# DONE
-# possible 'if' syntax: if a=b goto 12; also allow > <
-# only allow comparison with variables; line must start 'if '; 1st variable always at char 3; 
-# comparison operator at char 4; second variable at char 5; line number always follows split at char 11/12
 
 from microbit import *
 import music
@@ -21,6 +14,7 @@ program_list = []
 global program_counter
 program_counter = -1
 variables = [None]*26
+operators = '+-/*'
 
 def help():
     print('smolBASIC')
@@ -103,6 +97,19 @@ def parse(instruction):
         else:
             split = instruction.find(' ') + 1
             print(instruction[split:])
+    elif instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
+        var1 = instruction[0]
+        var2 = instruction[2]
+        var3 = instruction[4]
+        operator = instruction[3]
+        if operator == '+':
+            variables[ord(var1)-97] = variables[ord(var2)-97] + variables[ord(var3)-97]
+        elif operator == '-':
+            variables[ord(var1)-97] = variables[ord(var2)-97] - variables[ord(var3)-97]
+        if operator == '/':
+            variables[ord(var1)-97] = variables[ord(var2)-97] / variables[ord(var3)-97]
+        if operator == '*':
+            variables[ord(var1)-97] = variables[ord(var2)-97] * variables[ord(var3)-97]            
     elif '=' in instruction:
         split = instruction.find('=') + 1
         var_name = instruction[:split-1]
