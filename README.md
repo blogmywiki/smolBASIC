@@ -15,7 +15,7 @@ As a first text-based langauge, it aims to be as simple as possible, so it avoid
 
 Programs have no line numbers when entered, but lines do have numbers when listed (mainly to allow 'goto' statements to work).
 
-Every instruction takes 1 second to execute. The slow pace allows students to think about how their programs work and what they do.
+Every instruction takes half a second to execute. The slow pace allows students to think about how their programs work and what they do.
 
 A student can simply type 
 ```
@@ -64,6 +64,8 @@ Scroll text on the LED display with
 ```
 scroll hello world
 ```
+
+You can clear the screen with `clear`
 
 ### Variables
 
@@ -124,6 +126,14 @@ Play note A with
 beep A
 ```
 At the moment no note duration can be set.
+
+### Fast and slow modes
+
+By default every instruction takes half a second to excecute.
+
+You can speed things up by typing `fast` at the prompt. This removes any delay. 
+
+You can slow them back down again with `slow`
 
 
 ### Saving and loading programs
