@@ -1,6 +1,5 @@
-# v19 adds very basic maths operations
-# maths operations can only be performed on variables and must be in the format a=b*c
-# Only +, -, / and * are supported
+# v20 adds 'fast' and 'slow' modes, wait instruction, now does not clear screen after showing image
+# adds 'clear' instruction to clear screen
 # TO DO:
 # add access to sensors
 # add speech?
@@ -15,6 +14,7 @@ global program_counter
 program_counter = -1
 variables = [None]*26
 operators = '+-/*'
+delay = 500
 
 def help():
     print('smolBASIC')
@@ -46,6 +46,13 @@ def parse(instruction):
             program_counter = line_number - 1
         else:
             print('Goto error: line doesn\'t exist.')
+    elif instruction.startswith('wait '):
+        split = instruction.find(' ') + 1
+        wait_time = int(instruction[split:])
+        sleep(wait_time)
+        print('sleep')
+    elif instruction == 'clear':
+        display.clear()
     elif instruction == 'stop':
         program_counter = len(program_list)
     elif instruction.startswith('beep '):
@@ -210,6 +217,10 @@ while True:
                 print(i,program_list[i])
         except:
             print('No file to load.')
+    elif new_line == 'fast':
+        delay = 0
+    elif new_line == 'slow':
+        delay = 500
     elif new_line == 'run':
         program_counter = -1
         while program_counter < len(program_list):
@@ -218,8 +229,8 @@ while True:
                 break
             else:
                 parse(program_list[program_counter])
-                sleep(500)
-                display.clear()
+                sleep(delay)
+#                display.clear() <- used to clear display after showing image, now leaves it as is
     else:
         if new_line != '':
             program_list.append(new_line)
