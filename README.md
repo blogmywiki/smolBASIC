@@ -105,6 +105,8 @@ Stop a program executing with
 stop
 ```
 
+There's no 'for' loop but you can create a loop by incrementing a variable and testing it, see the 'Loop' example below.
+
 ### Editing and running programs
 
 Delete the current program with `new`
@@ -194,6 +196,16 @@ There's lots I could add, but I don't want to add too much - it needs to be supe
 11 goto 1
 ```
 
+### Loop
+This will count to 10.
+```
+0 a=1
+1 b=1
+2 c=11
+3 print a
+4 a=a+b
+5 if a<c goto 3
+```
 
 ## Original preview video
 
