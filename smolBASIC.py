@@ -1,10 +1,6 @@
-# v20 adds 'fast' and 'slow' modes, wait instruction, now does not clear screen after showing image
-# adds 'clear' instruction to clear screen
-# TO DO:
-# add access to sensors
-# add speech?
-# add a function to verify variable names and convert them to an index number
-# increment / decrement variables
+# A very simple programming language for the BBC micro:bit by Giles Booth
+# Intended to be run in a computer's serial console, micro:bit connected by USB.
+# v21 adds more exception handling
 
 from microbit import *
 import music
@@ -39,139 +35,141 @@ def help():
 def parse(instruction):
     global program_counter
 #    print(program_counter)
-    if instruction.startswith('goto '):
-        split = instruction.find(' ') + 1
-        line_number = int(instruction[split:])
-        if line_number > -1 and line_number < len(program_list) + 1:
-            program_counter = line_number - 1
-        else:
-            print('Goto error: line doesn\'t exist.')
-    elif instruction.startswith('wait '):
-        split = instruction.find(' ') + 1
-        wait_time = int(instruction[split:])
-        sleep(wait_time)
-        print('sleep')
-    elif instruction == 'clear':
-        display.clear()
-    elif instruction == 'stop':
-        program_counter = len(program_list)
-    elif instruction.startswith('beep '):
-        music.play(instruction[5])
-    elif instruction.startswith('random '):
-        # random a 99 puts a random number between 1 and 99 in variable a
-        var_rnd = instruction[7]
-        var_index = ord(var_rnd) - 97
-        rnd_range = int(instruction[9:])
-        variables[var_index] = randint(1,rnd_range)
-    elif instruction.startswith('if '):
-        var1 = ord(instruction[3]) - 97
-        operator = instruction[4]
-        var2 = ord(instruction[5]) - 97
-        goto = int(instruction[12:])
-        if goto  < 0 or goto > len(program_list):
-            print('Goto error: line doesn\'t exist.')
-        else:
-            if operator == '=':
-                if variables[var1] == variables[var2]:
-                    program_counter = goto - 1
-            elif operator == '>':
-                if variables[var1] > variables[var2]:
-                    program_counter = goto - 1
-            elif operator == '<':
-                if variables[var1] < variables[var2]:
-                    program_counter = goto - 1
-            else:
-                print('If error: comparsion operators must be =, < or >')
-    elif instruction.startswith('scroll '):
-        split = instruction.find(' ') + 1
-        display.scroll(instruction[split:])
-    elif instruction.startswith('input ') and len(instruction) == 7:
-        var_input = instruction[6]
-        var_index = ord(var_input) - 97
-        if var_index >= 0 and var_index <= 26:
-            input_text = input()
-            try:
-                variables[var_index] = int(input_text)
-            except ValueError:
-                variables[var_index] = input_text
-        else:
-            print('Variable names must be letter a-z.')
-    elif instruction.startswith('print '):
-        if len(instruction) == 7 and instruction[6].isalpha():
-            var_print = instruction[6]
-            var_index = ord(var_print) - 97            
-            print(variables[var_index])
-        else:
+    try:
+        if instruction.startswith('goto '):
             split = instruction.find(' ') + 1
-            print(instruction[split:])
-    elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
-        var1 = instruction[0]
-        var2 = instruction[2]
-        var3 = instruction[4]
-        operator = instruction[3]
-        if operator == '+':
-            variables[ord(var1)-97] = variables[ord(var2)-97] + variables[ord(var3)-97]
-        elif operator == '-':
-            variables[ord(var1)-97] = variables[ord(var2)-97] - variables[ord(var3)-97]
-        if operator == '/':
-            variables[ord(var1)-97] = variables[ord(var2)-97] / variables[ord(var3)-97]
-        if operator == '*':
-            variables[ord(var1)-97] = variables[ord(var2)-97] * variables[ord(var3)-97]            
-    elif '=' in instruction:
-        split = instruction.find('=') + 1
-        var_name = instruction[:split-1]
-        var_contents = instruction[split:]
-        if len(var_name) == 1 and var_name.isalpha():
-            try:
-                variables[ord(var_name)-97] = int(var_contents)
-            except ValueError:
-                variables[ord(var_name)-97] = var_contents
-#            print(var_name, '=', var_contents)
+            line_number = int(instruction[split:])
+            if line_number > -1 and line_number < len(program_list) + 1:
+                program_counter = line_number - 1
+            else:
+                print('Goto error: line doesn\'t exist.')
+        elif instruction.startswith('wait '):
+            split = instruction.find(' ') + 1
+            wait_time = int(instruction[split:])
+            sleep(wait_time)
+            print('sleep')
+        elif instruction == 'clear':
+            display.clear()
+        elif instruction == 'stop':
+            program_counter = len(program_list)
+        elif instruction.startswith('beep '):
+            music.play(instruction[5])
+        elif instruction.startswith('random '):
+            # random a 99 puts a random number between 1 and 99 in variable a
+            var_rnd = instruction[7]
+            var_index = ord(var_rnd) - 97
+            rnd_range = int(instruction[9:])
+            variables[var_index] = randint(1,rnd_range)
+        elif instruction.startswith('if '):
+            var1 = ord(instruction[3]) - 97
+            operator = instruction[4]
+            var2 = ord(instruction[5]) - 97
+            goto = int(instruction[12:])
+            if goto  < 0 or goto > len(program_list):
+                print('Goto error: line doesn\'t exist.')
+            else:
+                if operator == '=':
+                    if variables[var1] == variables[var2]:
+                        program_counter = goto - 1
+                elif operator == '>':
+                    if variables[var1] > variables[var2]:
+                        program_counter = goto - 1
+                elif operator == '<':
+                    if variables[var1] < variables[var2]:
+                        program_counter = goto - 1
+                else:
+                    print('If error: comparsion operators must be =, < or >')
+        elif instruction.startswith('scroll '):
+            split = instruction.find(' ') + 1
+            display.scroll(instruction[split:])
+        elif instruction.startswith('input ') and len(instruction) == 7:
+            var_input = instruction[6]
+            var_index = ord(var_input) - 97
+            if var_index >= 0 and var_index <= 26:
+                input_text = input()
+                try:
+                    variables[var_index] = int(input_text)
+                except ValueError:
+                    variables[var_index] = input_text
+            else:
+                print('Variable names must be letter a-z.')
+        elif instruction.startswith('print '):
+            if len(instruction) == 7 and instruction[6].isalpha():
+                var_print = instruction[6]
+                var_index = ord(var_print) - 97            
+                print(variables[var_index])
+            else:
+                split = instruction.find(' ') + 1
+                print(instruction[split:])
+        elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
+            var1 = instruction[0]
+            var2 = instruction[2]
+            var3 = instruction[4]
+            operator = instruction[3]
+            if operator == '+':
+                variables[ord(var1)-97] = variables[ord(var2)-97] + variables[ord(var3)-97]
+            elif operator == '-':
+                variables[ord(var1)-97] = variables[ord(var2)-97] - variables[ord(var3)-97]
+            if operator == '/':
+                variables[ord(var1)-97] = variables[ord(var2)-97] / variables[ord(var3)-97]
+            if operator == '*':
+                variables[ord(var1)-97] = variables[ord(var2)-97] * variables[ord(var3)-97]            
+        elif '=' in instruction:
+            split = instruction.find('=') + 1
+            var_name = instruction[:split-1]
+            var_contents = instruction[split:]
+            if len(var_name) == 1 and var_name.isalpha():
+                try:
+                    variables[ord(var_name)-97] = int(var_contents)
+                except ValueError:
+                    variables[ord(var_name)-97] = var_contents
+        #            print(var_name, '=', var_contents)
+            else:
+                print('Variable names must be one letter a-z.')
+        elif instruction == 'heart':
+            display.show(Image.HEART)
+        elif instruction == 'happy':
+            display.show(Image.HAPPY)
+        elif instruction == 'sad':
+            display.show(Image.SAD)
+        elif instruction == 'meh':
+            display.show(Image.MEH)
+        elif instruction == 'confused':
+            display.show(Image.CONFUSED)
+        elif instruction == 'angry':
+            display.show(Image.ANGRY)
+        elif instruction == 'asleep':
+            display.show(Image.ASLEEP)
+        elif instruction == 'yes':
+            display.show(Image.YES)
+        elif instruction == 'no':
+            display.show(Image.NO)
+        elif instruction == 'duck':
+            display.show(Image.DUCK)
+        elif instruction == 'small heart':
+            display.show(Image.HEART_SMALL)
+        elif instruction == 'pacman':
+            display.show(Image.PACMAN)
+        elif instruction == 'ghost':
+            display.show(Image.GHOST)
+        elif instruction == 'skull':
+            display.show(Image.SKULL)
+        elif instruction == 'rabbit':
+            display.show(Image.RABBIT)
+        elif instruction == 'diamond':
+            display.show(Image.DIAMOND)
+        elif instruction == 'small diamond':
+            display.show(Image.DIAMOND_SMALL)
+        elif instruction == 'star':
+            display.show(Image('00300:'
+                               '03630:'
+                               '36963:'
+                               '03630:'
+                               '00300'))
         else:
-            print('Variable names must be one letter a-z.')
-    elif instruction == 'heart':
-        display.show(Image.HEART)
-    elif instruction == 'happy':
-        display.show(Image.HAPPY)
-    elif instruction == 'sad':
-        display.show(Image.SAD)
-    elif instruction == 'meh':
-        display.show(Image.MEH)
-    elif instruction == 'confused':
-        display.show(Image.CONFUSED)
-    elif instruction == 'angry':
-        display.show(Image.ANGRY)
-    elif instruction == 'asleep':
-        display.show(Image.ASLEEP)
-    elif instruction == 'yes':
-        display.show(Image.YES)
-    elif instruction == 'no':
-        display.show(Image.NO)
-    elif instruction == 'duck':
-        display.show(Image.DUCK)
-    elif instruction == 'small heart':
-        display.show(Image.HEART_SMALL)
-    elif instruction == 'pacman':
-        display.show(Image.PACMAN)
-    elif instruction == 'ghost':
-        display.show(Image.GHOST)
-    elif instruction == 'skull':
-        display.show(Image.SKULL)
-    elif instruction == 'rabbit':
-        display.show(Image.RABBIT)
-    elif instruction == 'diamond':
-        display.show(Image.DIAMOND)
-    elif instruction == 'small diamond':
-        display.show(Image.DIAMOND_SMALL)
-    elif instruction == 'star':
-        display.show(Image('00300:'
-                           '03630:'
-                           '36963:'
-                           '03630:'
-                           '00300'))
-    else:
-        display.show('?')
-
+            display.show('?')
+    except:
+        print('There\'s a mistake in your program.')
 print('smolBASIC')
 print('Type \'help\' for a list of commands.')
     
