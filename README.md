@@ -163,9 +163,11 @@ It's smoller than TinyBASIC.
 ## To-do list
 There's lots I could add, but I don't want to add too much - it needs to be super-simple. For example, I know my Python is shonky and inconsistent, but if it's improved it still needs to be readable by a student new to Python.
 
-- [ ] must add the ability to increment and decrement variables as a way into coding simple loops. Suggest `a+1` and `a-1` as a minimum way of doing it, rather than the opaque +=1 or apparently contradictory a=a+1. At the moment you can increment a variable by setting a to 1 and using `b=b+a`
+- [ ] add access to sensors
+- [ ] add speech
+- [ ] add a function to verify variable names and convert them to an index number
 - [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion. I have added the ability to do maths operations on variables.
-- [ ] More general and better exception handling - at the moment if you trigger an exception, you lose your code (unless it's saved).
+- [x] More general and better exception handling - at the moment if you trigger an exception, you lose your code (unless it's saved).
 
 ## Sample programs
 
