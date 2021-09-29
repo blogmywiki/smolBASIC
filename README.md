@@ -4,6 +4,8 @@
 
 A very simple text-based programming language for the BBC micro:bit, written in Python.
 
+![smolBASIC in use](https://raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/alpha-editor-screenshot-small.png)
+
 ## Tell me more, tell me more
 smolBASIC runs on a micro:bit connected to any serial console via USB. The serial console can be the official micro:bit Python editor in a Chrome or Edge web browser.
 
