@@ -11,6 +11,8 @@ smolBASIC runs on a micro:bit connected to any serial console via USB. The seria
 
 smolBASIC could be a child's first text-based programming language, but it's also simple enough students can modify it themselves, for example adding instructions to show more images or access more sensors on the micro:bit or play more sounds. It could be used in KS3 in England to satisfy the requirement to teach a text-based language, and it could be accessible to more students than other, more complex languages.
 
+Students could also translate the smolBASIC commands into other languages, to give younger students the opportunity to do some text-based coding in their mother tongue.
+
 Its sheer simplicty also allows students to access some of the clarity of thought that comes with learning assembly language or machine code, but without having to learn hexadecimal, binary or memorise op codes.
 
 As a first text-based langauge, it aims to be as simple as possible, so it avoids punctuation like quotation marks around strings or brackets that students find hard to type.
