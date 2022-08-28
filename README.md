@@ -229,7 +229,7 @@ Connect micro:bit pin 2 to the UART RX pin on the Pi.
 
 Connect GND to GND and 3v to 3v.
 
--[ ] Input doesn't work
--[ ] Backspace needs to delete last character from line being entered
--[ ] Add some paper and ink colours
--[ ] Add graphics?
+- [ ] Input doesn't work
+- [ ] Backspace needs to delete last character from line being entered
+- [ ] Add some paper and ink colours
+- [ ] Add graphics?
