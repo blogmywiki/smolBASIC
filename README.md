@@ -219,7 +219,7 @@ This will count to 10.
 
 ## PiGFX version
 
-Note that `smolBASIC-GFX-main.py` is an experimental and veyr buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx
+Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx
 
 Configure your Pi (or other terminal) to run at 9600 baud.
 
@@ -228,3 +228,8 @@ Connect micro:bit pin 1 to the UART TX pin on the Pi.
 Connect micro:bit pin 2 to the UART RX pin on the Pi.
 
 Connect GND to GND and 3v to 3v.
+
+-[ ] Input doesn't work
+-[ ] Backspace needs to delete last character from line being entered
+-[ ] Add some paper and ink colours
+-[ ] Add graphics?
