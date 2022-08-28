@@ -159,7 +159,7 @@ It's smoller than TinyBASIC.
 - A computer with either USB serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new alpha editor https://python.microbit.org/v/alpha or an online serial console like https://googlechromelabs.github.io/serial-terminal/
 
 ## How to start it up
-- Flash the .py or .hex file to a BBC micro:bit V2
+- Flash the `smolBASIC.py` or .hex file to a BBC micro:bit V2
 - Open a serial console, either the REPL in one of the micro:bit Python editors or any other serial console
 - Type 'help' and press enter to see a list of instructions
 - Type commands and run them!
@@ -216,3 +216,15 @@ This will count to 10.
 ## Original preview video
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
+
+## PiGFX version
+
+Note that `smolBASIC-GFX-main.py` is an experimental and veyr buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx
+
+Configure your Pi (or other terminal) to run at 9600 baud.
+
+Connect micro:bit pin 1 to the UART TX pin on the Pi.
+
+Connect micro:bit pin 2 to the UART RX pin on the Pi.
+
+Connect GND to GND and 3v to 3v.
