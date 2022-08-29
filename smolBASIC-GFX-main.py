@@ -10,6 +10,7 @@ program_counter = -1
 variables = [None]*26
 operators = '+-/*'
 delay = 500
+colours = {'white':'15', 'black':'0', 'red':'9', 'yellow':'11', 'green':'10', 'blue':'12', 'magenta':'13', 'cyan':'14'}
 
 uart.init(baudrate=9600, bits=8, parity=None, stop=1, tx=pin2, rx=pin1)
 micropython.kbd_intr(-1) # disable accidental keyboard interrupt
@@ -35,7 +36,6 @@ def help():
 
 def parse(instruction):
     global program_counter
-#    uart.write(program_counter)
     try:
         if instruction.startswith('goto '):
             split = instruction.find(' ') + 1
@@ -102,6 +102,12 @@ def parse(instruction):
             else:
                 split = instruction.find(' ') + 1
                 print(instruction[split:])
+        elif instruction.startswith('ink '):
+            split = instruction.find(' ') + 1
+            uart.write('\x1B[38;5;' + colours[instruction[split:]] + 'm')
+        elif instruction.startswith('paper '):
+            split = instruction.find(' ') + 1
+            uart.write('\x1B[48;5;' + colours[instruction[split:]] + 'm')
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
             var2 = instruction[2]
