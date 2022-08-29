@@ -94,9 +94,9 @@ def parse(instruction):
                 uart.write('Variable names must be letter a-z.')
         elif instruction.startswith('print '):
             if len(instruction) == 7 and instruction[6].isalpha():
-                var_uart.write = instruction[6]
-                var_index = ord(var_uart.write) - 97            
-                uart.write(variables[var_index])
+                var_print = instruction[6]
+                var_index = ord(var_print) - 97            
+                uart.write(str(variables[var_index]))
             else:
                 split = instruction.find(' ') + 1
                 uart.write(instruction[split:])
