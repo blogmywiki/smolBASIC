@@ -234,5 +234,9 @@ Connect GND to GND and 3v to 3v.
 
 - [ ] Input doesn't work
 - [ ] Backspace needs to delete last character from line being entered
-- [ ] Add some paper and ink colours
-- [ ] Add graphics?
+- [x] Add paper and ink colours
+- [x] Add graphics (circle)
+- [ ] Add more graphics (lines, rectangles)
+- [ ] escape key to break
+- [ ] strip out stray spaces at ends of commands which cause errors
+- [ ] replace PiGFX font with custom cool font like Chicago
