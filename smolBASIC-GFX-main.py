@@ -1,3 +1,5 @@
+# experimental version using serial on pins 1 & 2 rather than USB
+
 from microbit import *
 import micropython
 import music
@@ -13,23 +15,23 @@ uart.init(baudrate=9600, bits=8, parity=None, stop=1, tx=pin2, rx=pin1)
 micropython.kbd_intr(-1) # disable accidental keyboard interrupt
 
 def help():
-    uart.write('\nType image names and then \'run\' to display them\n')
-    uart.write('\'scroll hello\' scrolls hello on LED display.\n')
-    uart.write('\'beep A\' plays the note A\n')
-    uart.write('\'stop\' stops the program\n')
-    uart.write('\'input a\' prompts user input of a variable\n')
-    uart.write('\'a=23\' assigns 23 to variable a\n')
-    uart.write('\'random a 99\' assigns a random number between 1 and 99 to a\n')
-    uart.write('\'if a>b goto 3\' jumps to line 3 if a>b\n')
-    uart.write('You can also use < and = as comparisons\n')
-    uart.write('\'list\' to list your program\n')
-    uart.write('\'new\' to create a new program\n')
-    uart.write('\'save\' stores your program in non-volatile memory\n')
-    uart.write('\'load\' to load your program from non-volatile memory\n')
-    uart.write('\'del 3\' deletes line 3\n')    
-    uart.write('Edit line 3 by typing \'3 happy\'\n')
-    uart.write('\'goto 0\' will go back to line 0 in a program\n')
-    uart.write('\'help\' to view this help\n')
+    print('Type image names and then \'run\' to display them')
+    print('\'scroll hello\' scrolls hello on LED display')
+    print('\'beep A\' plays the note A')
+    print('\'stop\' stops the program')
+    print('\'input a\' prompts user input of a variable')
+    print('\'a=23\' assigns 23 to variable a')
+    print('\'random a 99\' assigns a random number between 1 and 99 to a')
+    print('\'if a>b goto 3\' jumps to line 3 if a>b')
+    print('You can also use < and = as comparisons')
+    print('\'list\' to list your program')
+    print('\'new\' to create a new program')
+    print('\'save\' stores your program in non-volatile memory')
+    print('\'load\' to load your program from non-volatile memory')
+    print('\'del 3\' deletes line 3')    
+    print('Edit line 3 by typing \'3 happy\'')
+    print('\'goto 0\' will go back to line 0 in a program')
+    print('\'help\' to view this help')
 
 def parse(instruction):
     global program_counter
@@ -41,12 +43,12 @@ def parse(instruction):
             if line_number > -1 and line_number < len(program_list) + 1:
                 program_counter = line_number - 1
             else:
-                uart.write('Goto error: line doesn\'t exist.')
+                print('Error: goto line doesn\'t exist.')
         elif instruction.startswith('wait '):
             split = instruction.find(' ') + 1
             wait_time = int(instruction[split:])
             sleep(wait_time)
-            uart.write('sleep')
+            print('sleep')
         elif instruction == 'clear':
             display.clear()
         elif instruction == 'stop':
@@ -65,7 +67,7 @@ def parse(instruction):
             var2 = ord(instruction[5]) - 97
             goto = int(instruction[12:])
             if goto  < 0 or goto > len(program_list):
-                uart.write('Goto error: line doesn\'t exist.')
+                print('Error: goto line doesn\'t exist.')
             else:
                 if operator == '=':
                     if variables[var1] == variables[var2]:
@@ -77,7 +79,7 @@ def parse(instruction):
                     if variables[var1] < variables[var2]:
                         program_counter = goto - 1
                 else:
-                    uart.write('If error: comparsion operators must be =, < or >')
+                    print('Error: if statement comparsion operators must be =, < or >')
         elif instruction.startswith('scroll '):
             split = instruction.find(' ') + 1
             display.scroll(instruction[split:])
@@ -91,15 +93,15 @@ def parse(instruction):
                 except ValueError:
                     variables[var_index] = input_text
             else:
-                uart.write('Variable names must be letter a-z.')
+                print('Variable names must be letter a-z.')
         elif instruction.startswith('print '):
             if len(instruction) == 7 and instruction[6].isalpha():
                 var_print = instruction[6]
                 var_index = ord(var_print) - 97            
-                uart.write(str(variables[var_index]))
+                print(variables[var_index])
             else:
                 split = instruction.find(' ') + 1
-                uart.write(instruction[split:])
+                print(instruction[split:])
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
             var2 = instruction[2]
@@ -124,7 +126,7 @@ def parse(instruction):
                     variables[ord(var_name)-97] = var_contents
         #            uart.write(var_name, '=', var_contents)
             else:
-                uart.write('Variable names must be one letter a-z.')
+                print('Variable names must be one letter a-z.')
         elif instruction == 'heart':
             display.show(Image.HEART)
         elif instruction == 'happy':
@@ -172,14 +174,16 @@ def parse(instruction):
 
 sleep(500)
 
+# use print for text etc as it adds a newline. Use uart.write for sending control codes
 music.play(['c'])
 uart.write('\x1B[2J')       # clear screen
 uart.write('\x1B[38;5;11m') # set foreground to yellow
 uart.write('\x1B[48;5;12m') # set background to blue
-uart.write('BBC micro:bit computer system\n')
+print('BBC micro:bit computer system')
 uart.write('\x1B[0m')       # set default colours
-uart.write('7167 bytes free\n')
-uart.write('smolBASIC\n')
+print('7167 bytes free')
+print('smolBASIC')
+
 
 while True:
     uart.write('\n>')
@@ -198,21 +202,21 @@ while True:
             line_number = int(new_line[split:])
             if line_number > -1 and line_number < len(program_list):
                 del program_list[line_number]
-                uart.write('deleted line ' + str(line_number))
+                print('deleted line',line_number)
             else:
-                uart.write('That line doesn\'t exist.')
+                print('That line doesn\'t exist.')
         else:
-            uart.write('You need to tell me which line to delete.')
+            print('You need to tell me which line to delete.')
     elif new_line[:1].isdigit():
         split = new_line.find(' ') + 1
         line_number = int(new_line[:split])
         if line_number >= 0 and line_number < len(program_list):
             program_list[line_number] = new_line[split:]
         else:
-            uart.write('Line' + str(line_number) + ' doesn\'t exist.')
+            print('Line',line_number,'doesn\'t exist.')
     elif new_line == 'list':
         for i in range(len(program_list)):
-            uart.write(str(i)+' '+program_list[i]+'\n')
+            print(i,program_list[i])
     elif new_line == 'new':
         program_list = []
     elif new_line == 'help':
@@ -222,7 +226,7 @@ while True:
         joined_list = ",".join(program_list)
         my_file.write(joined_list)
         my_file.close()
-        uart.write('Program saved.')
+        print('Program saved.')
     elif new_line == 'load':
         try:
             with open('data') as f:
