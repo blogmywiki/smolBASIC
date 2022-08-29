@@ -219,7 +219,10 @@ This will count to 10.
 
 Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx
 
-This version also has `ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white.
+This version also has:
+- `ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white.
+- `clear screen` 
+- `circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
 
 Configure your Pi (or other terminal) to run at 9600 baud.
 
