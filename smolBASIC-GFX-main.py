@@ -51,6 +51,8 @@ def parse(instruction):
             print('sleep')
         elif instruction == 'clear':
             display.clear()
+        elif instruction == 'clear screen':
+            uart.write('\x1B[2J')
         elif instruction == 'stop':
             program_counter = len(program_list)
         elif instruction.startswith('beep '):
@@ -108,6 +110,16 @@ def parse(instruction):
         elif instruction.startswith('paper '):
             split = instruction.find(' ') + 1
             uart.write('\x1B[48;5;' + colours[instruction[split:]] + 'm')
+        elif instruction.startswith('circle '):
+            split = instruction.find(' ') + 1
+            xyr = instruction[split:]
+            split = xyr.find(' ') + 1
+            x = xyr[:split].strip(' ')
+            yr = xyr[split:]
+            split = yr.find(' ') + 1
+            y = yr[:split].strip(' ')
+            r = yr[split:]
+            uart.write('\x1B[#'+x+';'+y+';'+r+'c')
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
             var2 = instruction[2]
@@ -189,7 +201,7 @@ print('BBC micro:bit computer system')
 uart.write('\x1B[0m')       # set default colours
 print('7167 bytes free')
 print('smolBASIC')
-
+# uart.write('\x1B[#100;100;50c') #     Fill a circle with center at <x0>,<y0> and radius <r>
 
 while True:
     uart.write('\n>')
