@@ -222,6 +222,7 @@ while True:
             new_line = new_line + new_char_string
             uart.write(new_char_byte)
     new_line = new_line[:-1]
+    new_line = new_line.rstrip()
     if new_line.startswith('del '):
         if ' ' in new_line:
             split = new_line.find(' ') + 1
@@ -258,8 +259,6 @@ while True:
             with open('data') as f:
                 joined_list = f.read()
                 program_list = joined_list.split(',')
-#            for i in range(len(program_list)):
-#                uart.write(i,program_list[i])
         except:
             uart.write('No file to load.')
     elif new_line == 'fast':
@@ -275,7 +274,6 @@ while True:
             else:
                 parse(program_list[program_counter])
                 sleep(delay)
-#                display.clear() <- used to clear display after showing image, now leaves it as is
     else:
         if new_line != '':
             program_list.append(new_line)
