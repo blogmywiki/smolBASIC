@@ -227,7 +227,7 @@ Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that
 ![PiGFX version](images/gfx-version-test.JPG)
 
 This version also has:
-- `ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white.
+- `ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white. Ink also accepts numbers in the range 0-255 or variable names so you can create random colours. See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg for a colour chart.
 - `clear screen` clears the screen and sets colours back to black and white.
 - `circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
 
@@ -241,6 +241,7 @@ Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 
 ### Fix / to-do list
 
+= [ ] Make paper take numbers and variables like ink
 - [ ] Backspace needs to delete character if errors are corrected 
 - [ ] Add more graphics (lines, rectangles)
 - [ ] escape key to break? this may not be possible as `except KeyboardInterrupt:` doesn't work
