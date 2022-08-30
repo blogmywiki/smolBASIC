@@ -231,13 +231,13 @@ This version also has:
 - `clear screen` clears the screen and sets colours back to black and white.
 - `circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
 
-Configure your Pi (or other terminal) to run at 9600 baud.
+Configure your PiGFX install (or other terminal) to run at 9600 baud. Connect a USB keyboard to the Pi and the Pi to a monitor via HDMI or composite video out (NTSC).
 
 Connect micro:bit pin 1 to the UART TX pin on the Pi.
 
 Connect micro:bit pin 2 to the UART RX pin on the Pi.
 
-Connect GND to GND and 3v to 3v.
+Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 
 - [ ] Input doesn't work
 - [ ] Backspace needs to delete last character from line being entered
