@@ -239,7 +239,8 @@ Connect micro:bit pin 2 to the UART RX pin on the Pi.
 
 Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 
-- [ ] Input doesn't work
+### Fix / to-do list
+
 - [ ] Backspace needs to delete last character from line being entered
 - [ ] Allow circle to take variables as parameters
 - [ ] Add more graphics (lines, rectangles)
@@ -248,5 +249,6 @@ Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 - [ ] replace PiGFX font with custom cool font like Chicago
 - [ ] rewrite whole parsing system to be more efficient
 - [ ] consider a version with serial over USB instead of pins - requires more hardware but could greatly simplify code (input etc) 
+- [x] Input doesn't work
 - [x] Add paper and ink colours
 - [x] Add graphics (circle)
