@@ -169,6 +169,9 @@ There's lots I could add, but I don't want to add too much - it needs to be supe
 - [ ] add speech
 - [ ] add a function to verify variable names and convert them to an index number
 - [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion. I have added the ability to do maths operations on variables.
+- [ ] Consider changing paradigm so stored program lines have to be entered with a line number
+- [ ] Consider direct execution of instructions
+- [ ] Allow non-consecutive line numbers?
 - [x] More general and better exception handling - at the moment if you trigger an exception, you lose your code (unless it's saved).
 
 ## Sample programs
@@ -234,9 +237,12 @@ Connect GND to GND and 3v to 3v.
 
 - [ ] Input doesn't work
 - [ ] Backspace needs to delete last character from line being entered
-- [x] Add paper and ink colours
-- [x] Add graphics (circle)
+- [ ] Allow circle to take variables as parameters
 - [ ] Add more graphics (lines, rectangles)
-- [ ] escape key to break
+- [ ] escape key to break?
 - [ ] strip out stray spaces at ends of commands which cause errors
 - [ ] replace PiGFX font with custom cool font like Chicago
+- [ ] rewrite whole parsing system to be more efficient
+- [ ] consider a version with serial over USB instead of pins - requires more hardware but could greatly simplify code (input etc) 
+- [x] Add paper and ink colours
+- [x] Add graphics (circle)
