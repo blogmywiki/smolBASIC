@@ -89,7 +89,15 @@ def parse(instruction):
             var_input = instruction[6]
             var_index = ord(var_input) - 97
             if var_index >= 0 and var_index <= 26:
-                input_text = input()
+                input_text = ''
+                new_char_string = ''
+                while new_char_string != '\n':
+                    new_char_byte =  uart.readline()
+                    if new_char_byte:
+                        new_char_string = str(new_char_byte, 'UTF-8')
+                        input_text = input_text + new_char_string
+                        uart.write(new_char_byte)
+                input_text = input_text[:-1]
                 try:
                     variables[var_index] = int(input_text)
                 except ValueError:
