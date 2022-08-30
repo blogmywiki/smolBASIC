@@ -58,11 +58,11 @@ def parse(instruction):
         elif instruction.startswith('beep '):
             music.play(instruction[5])
         elif instruction.startswith('random '):
-            # random a 99 puts a random number between 1 and 99 in variable a
+            # random a 99 puts a random number between 0 and 99 in variable a
             var_rnd = instruction[7]
             var_index = ord(var_rnd) - 97
             rnd_range = int(instruction[9:])
-            variables[var_index] = randint(1,rnd_range)
+            variables[var_index] = randint(0,rnd_range)
         elif instruction.startswith('if '):
             var1 = ord(instruction[3]) - 97
             operator = instruction[4]
@@ -127,6 +127,12 @@ def parse(instruction):
             split = yr.find(' ') + 1
             y = yr[:split].strip(' ')
             r = yr[split:]
+            if x.isalpha():
+                x = str(variables[ord(x)-97])
+            if y.isalpha():
+                y = str(variables[ord(y)-97])
+            if r.isalpha():
+                r = str(variables[ord(r)-97])
             uart.write('\x1B[#'+x+';'+y+';'+r+'c')
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
