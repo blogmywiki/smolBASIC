@@ -114,7 +114,13 @@ def parse(instruction):
                 print(instruction[split:])
         elif instruction.startswith('ink '):
             split = instruction.find(' ') + 1
-            uart.write('\x1B[38;5;' + colours[instruction[split:]] + 'm')
+            if instruction[split:].isalpha():
+                if len(instruction[split:]) > 1:
+                    uart.write('\x1B[38;5;' + colours[instruction[split:]] + 'm')
+                else:
+                    uart.write('\x1B[38;5;' + str(variables[ord(instruction[split:])-97]) + 'm')
+            else:
+                uart.write('\x1B[38;5;' + instruction[split:] + 'm')
         elif instruction.startswith('paper '):
             split = instruction.find(' ') + 1
             uart.write('\x1B[48;5;' + colours[instruction[split:]] + 'm')
