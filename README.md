@@ -241,13 +241,13 @@ Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 
 ### Fix / to-do list
 
-- [ ] Backspace needs to delete last character from line being entered
-- [ ] Allow circle to take variables as parameters
+- [ ] Backspace needs to delete character if errors are corrected 
 - [ ] Add more graphics (lines, rectangles)
 - [ ] escape key to break? this may not be possible as `except KeyboardInterrupt:` doesn't work
 - [ ] replace PiGFX font with custom cool font like Chicago
 - [ ] rewrite whole parsing system to be more efficient
 - [ ] consider a version with serial over USB instead of pins - requires more hardware but could greatly simplify code (input etc); I've tried this with a USB-serial adaptor used in reverse and it didn't work.
+- [x] Allow circle to take variables as parameters
 - [x] strip out stray spaces at ends of commands which cause errors
 - [x] Input doesn't work
 - [x] Add paper and ink colours
