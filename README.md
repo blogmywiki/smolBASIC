@@ -245,10 +245,10 @@ Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 - [ ] Allow circle to take variables as parameters
 - [ ] Add more graphics (lines, rectangles)
 - [ ] escape key to break? this may not be possible as `except KeyboardInterrupt:` doesn't work
-- [ ] strip out stray spaces at ends of commands which cause errors
 - [ ] replace PiGFX font with custom cool font like Chicago
 - [ ] rewrite whole parsing system to be more efficient
 - [ ] consider a version with serial over USB instead of pins - requires more hardware but could greatly simplify code (input etc); I've tried this with a USB-serial adaptor used in reverse and it didn't work.
+- [x] strip out stray spaces at ends of commands which cause errors
 - [x] Input doesn't work
 - [x] Add paper and ink colours
 - [x] Add graphics (circle)
