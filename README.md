@@ -117,7 +117,7 @@ There's no 'for' loop but you can create a loop by incrementing a variable and t
 smolBASIC has count-controlled loops. Looped sections of code start with `repeat` and end with `again` - so this example prints 'micro:bit is cool' 5 times then beeps:
 
 ```
-0 repeat
+0 repeat 5
 1 print micro:bit is cool
 2 again
 3 beep A
