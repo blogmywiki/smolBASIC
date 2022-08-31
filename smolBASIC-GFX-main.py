@@ -154,6 +154,27 @@ def parse(instruction):
             if r.isalpha():
                 r = str(variables[ord(r)-97])
             uart.write('\x1B[#'+x+';'+y+';'+r+'c')
+        elif instruction.startswith('rectangle '):
+            split = instruction.find(' ') + 1
+            xywh = instruction[split:]
+            split = xywh.find(' ') + 1
+            x = xywh[:split].strip(' ')
+            ywh = xywh[split:]
+            split = ywh.find(' ') + 1
+            y = ywh[:split].strip(' ')
+            wh = ywh[split:]
+            split = wh.find(' ') + 1
+            w = wh[:split].strip(' ')
+            h = wh[split:]
+            if x.isalpha():
+                x = str(variables[ord(x)-97])
+            if y.isalpha():
+                y = str(variables[ord(y)-97])
+            if w.isalpha():
+                w = str(variables[ord(r)-97])
+            if h.isalpha():
+                h = str(variables[ord(r)-97])
+            uart.write('\x1B[#'+x+';'+y+';'+w+';'+h+'r')
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
             var2 = instruction[2]
