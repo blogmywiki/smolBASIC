@@ -241,7 +241,7 @@ Connect micro:bit pin 2 to the UART RX pin on the Pi.
 
 Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
 
-### Sample program to draw random colour and size circles
+### Sample program to draw random colour and size circles
 
 Sorry there's no break key, so save this before running. Enter fast mode, run it - then press the reset button on the micro:bit to break out of it.
 
