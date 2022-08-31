@@ -272,11 +272,12 @@ Sorry there's no break key, so save this before running. Enter fast mode, run it
 
 - [ ] Make paper take numbers and variables like ink
 - [ ] Backspace needs to delete character if errors are corrected 
-- [ ] Add more graphics (lines, rectangles)
-- [ ] escape key to break? this may not be possible as `except KeyboardInterrupt:` doesn't work
-- [ ] replace PiGFX font with custom cool font like Chicago
-- [ ] rewrite whole parsing system to be more efficient
-- [ ] consider a version with serial over USB instead of pins - requires more hardware but could greatly simplify code (input etc); I've tried this with a USB-serial adaptor used in reverse and it didn't work.
+- [ ] Add more graphics: lines
+- [x] add rectangles
+- [ ] Add a break key - this may not be possible as `except KeyboardInterrupt:` doesn't work
+- [ ] Replace PiGFX font with custom cool font like Chicago
+- [ ] Rewrite whole parsing system to be more efficient
+- [ ] Consider a version with serial over USB instead of pins - requires more hardware but could greatly simplify code (input etc); I've tried this with a USB-serial adaptor used in reverse and it didn't work.
 - [x] Allow circle to take variables as parameters
 - [x] strip out stray spaces at ends of commands which cause errors
 - [x] Input doesn't work
