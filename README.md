@@ -79,8 +79,9 @@ Assign a variable with
 ```
 a=23
 ```
+Variables can be numerical or strings of characters.
 
-You can get user input using
+You can put user input into a variable using
 ```
 input b
 ```
