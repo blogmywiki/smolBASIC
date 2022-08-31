@@ -111,6 +111,17 @@ stop
 
 There's no 'for' loop but you can create a loop by incrementing a variable and testing it, see the 'Loop' example below.
 
+### Loops
+
+smolBASIC has count-controlled loops. Looped sections of code start with `repeat` and end with `again` - so this example prints 'micro:bit is cool' 5 times then beeps:
+
+```
+0 repeat
+1 print micro:bit is cool
+2 again
+3 beep A
+```
+
 ### Editing and running programs
 
 Delete the current program with `new`
