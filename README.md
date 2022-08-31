@@ -2,7 +2,7 @@
 
 (formerly known as mi:little coder)
 
-A very simple text-based programming language for the BBC micro:bit, written in Python.
+A very simple text-based programming language for the BBC micro:bit, written in MicroPython.
 
 ![smolBASIC in use](https://raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/alpha-editor-screenshot-small.png)
 
@@ -110,8 +110,6 @@ Stop a program executing with
 stop
 ```
 
-There's no 'for' loop but you can create a loop by incrementing a variable and testing it, see the 'Loop' example below.
-
 ### Loops
 
 smolBASIC has count-controlled loops. Looped sections of code start with `repeat` and end with `again` - so this example prints 'micro:bit is cool' 5 times then beeps:
@@ -217,7 +215,7 @@ There's lots I could add, but I don't want to add too much - it needs to be supe
 11 goto 1
 ```
 
-### Loop
+### Loop without a loop instruction
 This will count to 10.
 ```
 0 a=1
@@ -234,9 +232,8 @@ This will count to 10.
 
 ## PiGFX version
 
-
-
-Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx
+Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx 
+This has added graphics and colour capabilities.
 
 ![PiGFX version](images/gfx-version-test.JPG)
 
