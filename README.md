@@ -94,11 +94,11 @@ random a 99
 ### Maths operations
 Maths operations can only be performed on variables and must be in the format `a=b*c`
 
-Only +, -, / and * are supported.
+Only +, -, / and * operators are supported.
 
 ### Branching and flow control
 
-smolBASIC has a goto instruction:
+smolBASIC can branch conditionally with `if` and `goto` instructions:
 ```
 if a>b goto 6
 ```
@@ -112,7 +112,7 @@ stop
 
 There's no 'for' loop but you can create a loop by incrementing a variable and testing it, see the 'Loop' example below.
 
-### Loops
+### Loops
 
 smolBASIC has count-controlled loops. Looped sections of code start with `repeat` and end with `again` - so this example prints 'micro:bit is cool' 5 times then beeps:
 
