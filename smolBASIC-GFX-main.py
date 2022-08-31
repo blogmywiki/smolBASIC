@@ -10,6 +10,10 @@ program_counter = -1
 variables = [None]*26
 operators = '+-/*'
 delay = 500
+global repeat_count
+repeat_count = 0
+global return_address 
+return_address = 0
 colours = {'white':'15', 'black':'0', 'red':'9', 'yellow':'11', 'green':'10', 'blue':'12', 'magenta':'13', 'cyan':'14'}
 
 uart.init(baudrate=9600, bits=8, parity=None, stop=1, tx=pin2, rx=pin1)
@@ -36,6 +40,8 @@ def help():
 
 def parse(instruction):
     global program_counter
+    global repeat_count
+    global return_address
     try:
         if instruction.startswith('goto '):
             split = instruction.find(' ') + 1
@@ -49,6 +55,14 @@ def parse(instruction):
             wait_time = int(instruction[split:])
             sleep(wait_time)
             print('sleep')
+        elif instruction.startswith('repeat '):
+            split = instruction.find(' ') + 1
+            repeat_count = int(instruction[split:])
+            return_address = program_counter
+        elif instruction == 'again':
+            repeat_count -= 1
+            if repeat_count != 0:
+                program_counter = return_address
         elif instruction == 'clear':
             display.clear()
         elif instruction == 'clear screen':
@@ -207,8 +221,9 @@ def parse(instruction):
                                '00300'))
         else:
             display.show('?')
-    except:
-        uart.write('There\'s a mistake in your program.')
+    except Exception as e: print(e)
+#    except:
+#        uart.write('There\'s a mistake in your program.')
 
 sleep(500)
 
