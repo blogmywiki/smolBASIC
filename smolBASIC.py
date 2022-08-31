@@ -1,6 +1,5 @@
 # A very simple programming language for the BBC micro:bit by Giles Booth
 # Intended to be run in a computer's serial console, micro:bit connected by USB.
-# v21 adds more exception handling
 
 from microbit import *
 import music
@@ -11,6 +10,10 @@ program_counter = -1
 variables = [None]*26
 operators = '+-/*'
 delay = 500
+global repeat_count
+repeat_count = 0
+global return_address
+return_address = 0
 
 def help():
     print('smolBASIC')
@@ -34,6 +37,8 @@ def help():
 
 def parse(instruction):
     global program_counter
+    global repeat_count #new
+    global return_address #new
 #    print(program_counter)
     try:
         if instruction.startswith('goto '):
@@ -48,6 +53,14 @@ def parse(instruction):
             wait_time = int(instruction[split:])
             sleep(wait_time)
             print('sleep')
+        elif instruction.startswith('repeat '):
+            split = instruction.find(' ') + 1
+            repeat_count = int(instruction[split:])
+            return_address = program_counter
+        elif instruction == 'again':
+            repeat_count -= 1
+            if repeat_count != 0:
+                program_counter = return_address
         elif instruction == 'clear':
             display.clear()
         elif instruction == 'stop':
@@ -55,11 +68,11 @@ def parse(instruction):
         elif instruction.startswith('beep '):
             music.play(instruction[5])
         elif instruction.startswith('random '):
-            # random a 99 puts a random number between 1 and 99 in variable a
+            # random a 99 puts a random number between 0 and 99 in variable a
             var_rnd = instruction[7]
             var_index = ord(var_rnd) - 97
             rnd_range = int(instruction[9:])
-            variables[var_index] = randint(1,rnd_range)
+            variables[var_index] = randint(0,rnd_range)
         elif instruction.startswith('if '):
             var1 = ord(instruction[3]) - 97
             operator = instruction[4]
