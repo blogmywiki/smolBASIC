@@ -171,9 +171,9 @@ def parse(instruction):
             if y.isalpha():
                 y = str(variables[ord(y)-97])
             if w.isalpha():
-                w = str(variables[ord(r)-97])
+                w = str(variables[ord(w)-97])
             if h.isalpha():
-                h = str(variables[ord(r)-97])
+                h = str(variables[ord(h)-97])
             uart.write('\x1B[#'+x+';'+y+';'+w+';'+h+'r')
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
