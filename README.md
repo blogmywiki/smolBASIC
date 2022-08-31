@@ -165,7 +165,9 @@ It's smoller than TinyBASIC.
 ## To-do list
 There's lots I could add, but I don't want to add too much - it needs to be super-simple. For example, I know my Python is shonky and inconsistent, but if it's improved it still needs to be readable by a student new to Python.
 
-- [ ] add access to sensors
+- [ ] add access to sensors - perhaps assign them to variables, eg `a=light` or `b=temperature`
+- [ ] read button state
+- [ ] Add loops - a `repeat... again` construct
 - [ ] add speech
 - [ ] add a function to verify variable names and convert them to an index number
 - [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion. I have added the ability to do maths operations on variables.
@@ -255,7 +257,7 @@ Sorry there's no break key, so save this before running. Enter fast mode, run it
 
 ### Fix / to-do list
 
-= [ ] Make paper take numbers and variables like ink
+- [ ] Make paper take numbers and variables like ink
 - [ ] Backspace needs to delete character if errors are corrected 
 - [ ] Add more graphics (lines, rectangles)
 - [ ] escape key to break? this may not be possible as `except KeyboardInterrupt:` doesn't work
