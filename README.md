@@ -244,6 +244,7 @@ This version also has:
 - `ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white. Ink also accepts numbers in the range 0-255 or variable names so you can create random colours. See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg for a colour chart.
 - `clear screen` clears the screen and sets colours back to black and white.
 - `circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
+- `rectangle 100 200 30 40` draws a rectangle at x=100, y=200 of width 30 and height 40
 
 Configure your PiGFX install (or other terminal) to run at 9600 baud. Connect a USB keyboard to the Pi and the Pi to a monitor via HDMI or composite video out (NTSC).
 
