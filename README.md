@@ -121,6 +121,16 @@ smolBASIC has count-controlled loops. Looped sections of code start with `repeat
 3 beep A
 ```
 
+### Sensor readings
+
+You can assign sound, temperature and light level sensor readings to variables:
+
+```
+a=sound
+b=temp
+c=light
+```
+
 ### Editing and running programs
 
 Delete the current program with `new`
