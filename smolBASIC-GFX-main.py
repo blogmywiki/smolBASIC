@@ -193,11 +193,17 @@ def parse(instruction):
             var_name = instruction[:split-1]
             var_contents = instruction[split:]
             if len(var_name) == 1 and var_name.isalpha():
-                try:
-                    variables[ord(var_name)-97] = int(var_contents)
-                except ValueError:
-                    variables[ord(var_name)-97] = var_contents
-        #            uart.write(var_name, '=', var_contents)
+               if var_contents == 'light':
+                    variables[ord(var_name)-97] = display.read_light_level()
+                elif var_contents == 'temp':
+                    variables[ord(var_name)-97] = temperature()
+                elif var_contents == 'sound':
+                    variables[ord(var_name)-97] = microphone.sound_level()             
+                else:
+                    try:
+                        variables[ord(var_name)-97] = int(var_contents)
+                    except ValueError:
+                        variables[ord(var_name)-97] = var_contents
             else:
                 print('Variable names must be one letter a-z.')
         elif instruction == 'heart':
