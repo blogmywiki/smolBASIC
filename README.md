@@ -275,6 +275,21 @@ Sorry there's no break key, so save this before running. Enter fast mode, run it
 6 goto 0
 ```
 
+
+### Sound level meter demo
+
+This draws a bar that gets longer and changes colour the louder the sound the micro:bit picks up:
+
+```
+0 repeat 1000
+1 a=sound
+2 ink a
+3 b=2
+4 c=a*b
+5 rectangle 0 100 c 50
+6 again
+```
+
 ### Fix / to-do list
 
 - [ ] Make paper take numbers and variables like ink
