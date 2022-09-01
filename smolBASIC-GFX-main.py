@@ -193,7 +193,7 @@ def parse(instruction):
             var_name = instruction[:split-1]
             var_contents = instruction[split:]
             if len(var_name) == 1 and var_name.isalpha():
-               if var_contents == 'light':
+                if var_contents == 'light':
                     variables[ord(var_name)-97] = display.read_light_level()
                 elif var_contents == 'temp':
                     variables[ord(var_name)-97] = temperature()
