@@ -86,7 +86,7 @@ You can put user input into a variable using
 input b
 ```
 
-Assign a random number between 1 and 99 to a variable with 
+Assign a random number between 0 and 99 to a variable with 
 ```
 random a 99
 ```
@@ -164,7 +164,7 @@ It's smoller than TinyBASIC.
 ## What you need to run it
 - A BBC micro:bit V2 with built-in speaker (alas, it's now not smol enough to run on a V1)
 - A micro USB cable
-- A computer with either USB serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new alpha editor https://python.microbit.org/v/alpha or an online serial console like https://googlechromelabs.github.io/serial-terminal/
+- A computer with either USB serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new beta editor https://python.microbit.org/v/beta or an online serial console like https://googlechromelabs.github.io/serial-terminal/
 
 ## How to start it up
 - Flash the `smolBASIC.py` or .hex file to a BBC micro:bit V2
@@ -177,7 +177,7 @@ There's lots I could add, but I don't want to add too much - it needs to be supe
 
 - [ ] add access to sensors - perhaps assign them to variables, eg `a=light` or `b=temperature`
 - [ ] read button state
-- [ ] Add loops - a `repeat... again` construct
+- [x] Add loops - a `repeat... again` construct
 - [ ] add speech
 - [ ] add a function to verify variable names and convert them to an index number
 - [ ] Ability to parse expressions like a=b/17 - it may be a step too far, but I think the language needs to allow tasks like unit conversion. I have added the ability to do maths operations on variables.
