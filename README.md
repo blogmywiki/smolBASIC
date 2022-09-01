@@ -185,7 +185,7 @@ It's smoller than TinyBASIC.
 ## To-do list
 There's lots I could add, but I don't want to add too much - it needs to be super-simple. For example, I know my Python is shonky and inconsistent, but if it's improved it still needs to be readable by a student new to Python.
 
-- [ ] add access to sensors - perhaps assign them to variables, eg `a=light` or `b=temperature`
+- [x] add access to sensors - perhaps assign them to variables, eg `a=light` or `b=temperature`
 - [ ] read button state
 - [x] Add loops - a `repeat... again` construct
 - [ ] add speech
