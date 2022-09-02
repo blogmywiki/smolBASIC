@@ -13,6 +13,9 @@ delay = 500
 global repeat_count
 repeat_count = 0
 global return_address
+
+
+
 return_address = 0
 
 def help():
@@ -37,8 +40,8 @@ def help():
 
 def parse(instruction):
     global program_counter
-    global repeat_count #new
-    global return_address #new
+    global repeat_count
+    global return_address
 #    print(program_counter)
     try:
         if instruction.startswith('goto '):
@@ -132,11 +135,27 @@ def parse(instruction):
             var_name = instruction[:split-1]
             var_contents = instruction[split:]
             if len(var_name) == 1 and var_name.isalpha():
-                try:
-                    variables[ord(var_name)-97] = int(var_contents)
-                except ValueError:
-                    variables[ord(var_name)-97] = var_contents
-        #            print(var_name, '=', var_contents)
+                if var_contents == 'light':
+                    variables[ord(var_name)-97] = display.read_light_level()
+                elif var_contents == 'temp':
+                    variables[ord(var_name)-97] = temperature()
+                elif var_contents == 'sound':
+                    variables[ord(var_name)-97] = microphone.sound_level()
+                elif var_contents == 'button a':
+                    if button_a.was_pressed():
+                        variables[ord(var_name)-97] = 1
+                    else:
+                        variables[ord(var_name)-97] = 0
+                elif var_contents == 'button b':
+                    if button_b.was_pressed():
+                        variables[ord(var_name)-97] = 1
+                    else:
+                        variables[ord(var_name)-97] = 0
+                else:
+                    try:
+                        variables[ord(var_name)-97] = int(var_contents)
+                    except ValueError:
+                        variables[ord(var_name)-97] = var_contents
             else:
                 print('Variable names must be one letter a-z.')
         elif instruction == 'heart':
