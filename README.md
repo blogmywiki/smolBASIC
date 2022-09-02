@@ -131,6 +131,18 @@ b=temp
 c=light
 ```
 
+
+### Button inputs
+
+You can read button A and button B presses using variables.
+
+`a=button a` puts 1 in variable a if button A was pressed since the last test, otherwise 0.
+
+`b=button b` puts 1 in variable a if button V was pressed since the last test, otherwise 0.
+
+You can use any variable a-z, but a and b seem sensible.
+
+
 ### Editing and running programs
 
 Delete the current program with `new`
