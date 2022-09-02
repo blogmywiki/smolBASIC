@@ -171,14 +171,19 @@ Restore the saved program with `load`
 ## Why 'smolBASIC'?
 It's smoller than TinyBASIC.
 
-## What you need to run it
+## Try it out in your browser
+
+The simplest way to try out smolBASIC for yourself is to save and load `smolBASIC.py` or `smolBASIC.hex` in the Beta micro:bit Python editor https://python.microbit.org/v/beta and use it in the simulator. You may need to rearrange your screen slightly so you the serial console in the simulator is bigger. Press the 'play' button on the simualtor and interact with it using your computer's keyboard.
+
+## What you need to run it on a real micro:bit
+
 - A BBC micro:bit V2 with built-in speaker (alas, it's now not smol enough to run on a V1)
 - A micro USB cable
 - A computer with either USB serial terminal software or access via Chrome or Edge web browsers to either the online micro:bit Python editor https://python.microbit.org/v/2 or the new beta editor https://python.microbit.org/v/beta or an online serial console like https://googlechromelabs.github.io/serial-terminal/
 
-## How to start it up
-- Flash the `smolBASIC.py` or .hex file to a BBC micro:bit V2
-- Open a serial console, either the REPL in one of the micro:bit Python editors or any other serial console
+### How to start it up
+- Flash the `smolBASIC.py` from an editor or copy the `smolBASIC.hex` file direct to a BBC micro:bit V2 over USB.
+- Open a serial console: either the REPL/serial console in one of the micro:bit Python editors or any other serial console
 - Type 'help' and press enter to see a list of instructions
 - Type commands and run them!
 
