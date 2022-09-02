@@ -13,6 +13,9 @@ delay = 500
 global repeat_count
 repeat_count = 0
 global return_address
+
+
+
 return_address = 0
 
 def help():
@@ -137,7 +140,17 @@ def parse(instruction):
                 elif var_contents == 'temp':
                     variables[ord(var_name)-97] = temperature()
                 elif var_contents == 'sound':
-                    variables[ord(var_name)-97] = microphone.sound_level()             
+                    variables[ord(var_name)-97] = microphone.sound_level()
+                elif var_contents == 'button a':
+                    if button_a.was_pressed():
+                        variables[ord(var_name)-97] = 1
+                    else:
+                        variables[ord(var_name)-97] = 0
+                elif var_contents == 'button b':
+                    if button_b.was_pressed():
+                        variables[ord(var_name)-97] = 1
+                    else:
+                        variables[ord(var_name)-97] = 0
                 else:
                     try:
                         variables[ord(var_name)-97] = int(var_contents)
