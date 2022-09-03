@@ -257,7 +257,7 @@ This will count to 10.
 
 ```
 0 a=button a
-1 print a
+1 clear
 2 c=1
 3 if a=c goto 6
 4 print you did not press button A
