@@ -253,6 +253,20 @@ This will count to 10.
 5 if a<c goto 3
 ```
 
+### Test if button A was pressed
+
+```
+0 a=button a
+1 print a
+2 c=1
+3 if a=c goto 6
+4 print you did not press button A
+5 goto 8
+6 print you pressed button A
+7 happy
+8 beep A
+```
+
 ## Original preview video
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
