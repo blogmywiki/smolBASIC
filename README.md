@@ -5,7 +5,7 @@ A very simple text-based programming language for the BBC micro:bit, written in 
 ![smolBASIC in use](https://raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/alpha-editor-screenshot-small.png)
 
 ## Tell me more, tell me more
-smolBASIC can run in the simulator in the micro:bit Python Editor https://python.microbit.org/v/beta - or on a real micro:bit connected to any serial console via USB. The serial console can be the micro:bit Python Editor in a Chrome or Edge web browser. Scroll down the page to find out about a [version with colour and simple graphics](https://github.com/blogmywiki/smolBASIC).
+smolBASIC can run in the simulator in the micro:bit Python Editor https://python.microbit.org/v/beta - or on a real micro:bit connected to any serial console via USB. The serial console can be the micro:bit Python Editor in a Chrome or Edge web browser. Scroll down the page to find out about a [version with colour and simple graphics](https://github.com/blogmywiki/smolBASIC#pigfx-version).
 
 smolBASIC could be a child's first text-based programming language, but it's also simple enough students can modify it themselves, for example adding instructions to show more images or access more sensors on the micro:bit or play more sounds. It could be used in KS3 in England to satisfy the requirement to teach a text-based language, and it could be accessible to more students than other, more complex languages.
 
@@ -269,26 +269,43 @@ This will count to 10.
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
 
-## PiGFX version
+## PiGFX graphical version
 
 Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx 
 This has added graphics and colour capabilities.
 
+
 ![PiGFX version](images/gfx-version-test.JPG)
 
-This version also has:
-- `ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white. Ink also accepts numbers in the range 0-255 or variable names so you can create random colours. See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg for a colour chart.
-- `clear screen` clears the screen and sets colours back to black and white.
-- `circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
-- `rectangle 100 200 30 40` draws a rectangle at x=100, y=200 of width 30 and height 40
+### Making it
 
-Configure your PiGFX install (or other terminal) to run at 9600 baud. Connect a USB keyboard to the Pi and the Pi to a monitor via HDMI or composite video out (NTSC).
+You could use an old PiZero or, as I did, an old Raspberry Pi Model B as your terminal. PiGFX boots very quickly because it's not using Linux, it runs on 'bare metal'. Note that you should use a 1GB SD card for PiGFX - I could not get it to work with larger cards with 1GB FAT partitions, possibly because I was formatting them on a Mac.
+
+Follow the installation instructions at https://github.com/fbergama/pigfx. Configure PiGFX to run at 9600 baud. Connect a USB keyboard to the Pi and the Pi to a monitor via HDMI or composite video out (NTSC).
 
 Connect micro:bit pin 1 to the UART TX pin on the Pi.
 
 Connect micro:bit pin 2 to the UART RX pin on the Pi.
 
 Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
+
+If you use any other terminal hardware with this, note that the micro:bit (and Raspberry Pi) data pins run at 3v, not 5v, so you may need a level shifter to avoid blowing up your micro:bit.
+
+## Ink and paper
+
+`ink` and `paper` commands to set colours by name: red, green, blue, yellow, cyan, magenta, black and white. Ink also accepts numbers in the range 0-255 or variable names so you can create random colours.
+
+See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg for a colour chart.
+
+## Clear screen
+
+`clear screen` clears the screen and sets colours back to black and white.
+
+## Shapes
+
+`circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
+
+`rectangle 100 200 30 40` draws a rectangle at x=100, y=200 of width 30 and height 40
 
 ### Sample program to draw random colour and size circles
 
