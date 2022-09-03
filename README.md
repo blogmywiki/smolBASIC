@@ -291,7 +291,7 @@ Connect micro:bit GND to any Pi GND pin and micro:bit 3v to the Pi 3v pin.
 
 If you use any other terminal hardware with this, note that the micro:bit (and Raspberry Pi) data pins run at 3v, not 5v, so you may need a level shifter to avoid blowing up your micro:bit.
 
-<img src="raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/smolBASIC_bb.png" width=200>
+<img src="raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/smolBASIC_bb.png" width="300" />
 
 ## Ink and paper
 
