@@ -271,7 +271,7 @@ This will count to 10.
 
 ## PiGFX graphical version
 
-Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx 
+Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the micro:bit's edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx 
 This has added graphics and colour capabilities.
 
 
@@ -283,11 +283,11 @@ You could use an old PiZero or, as I did, an old Raspberry Pi Model B as your te
 
 Follow the installation instructions at https://github.com/fbergama/pigfx. Configure PiGFX to run at 9600 baud. Connect a USB keyboard to the Pi and the Pi to a monitor via HDMI or composite video out (NTSC).
 
-Connect micro:bit pin 1 to the UART TX pin on the Pi.
+Connect micro:bit RX pin 1 to the Pi UART TX pin on the Pi (Pin 8 - GPIO 14).
 
-Connect micro:bit pin 2 to the UART RX pin on the Pi.
+Connect micro:bit TX pin 2 to the Pi UART RX pin on the Pi (Pin 10 - GPIO 15).
 
-Connect micro:bit GND to Pi GND and micro:bit 3v to Pi 3v.
+Connect micro:bit GND to any Pi GND pin and micro:bit 3v to the Pi 3v pin.
 
 If you use any other terminal hardware with this, note that the micro:bit (and Raspberry Pi) data pins run at 3v, not 5v, so you may need a level shifter to avoid blowing up your micro:bit.
 
