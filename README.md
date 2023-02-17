@@ -265,6 +265,21 @@ This will count to 10.
 8 beep A
 ```
 
+
+### Emotion badge
+
+```
+0 a=button a
+1 b=button b
+2 z=0
+3 if a=z goto 6
+4 happy
+5 goto 0
+6 if b=z goto 0
+7 sad
+8 goto 0
+```
+
 ## Original preview video
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
