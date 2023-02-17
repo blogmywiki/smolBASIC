@@ -183,7 +183,7 @@ It's smoller than TinyBASIC.
 
 ## Try it out in your browser
 
-The simplest way to try out smolBASIC for yourself is to save and load `smolBASIC.py` or `smolBASIC.hex` in the Beta micro:bit Python editor https://python.microbit.org/ and use it in the simulator. You may need to rearrange your screen slightly so you the serial console in the simulator is bigger. Press the 'play' button on the simualtor and interact with it using your computer's keyboard.
+The simplest way to try out smolBASIC for yourself is to save and load `smolBASIC.py` or `smolBASIC.hex` in the micro:bit Python editor https://python.microbit.org/ and use it in the simulator. You may need to rearrange your screen slightly so you the serial console in the simulator is bigger. Press the 'play' button on the simualtor and interact with it using your computer's keyboard.
 
 ## What you need to run it on a real micro:bit
 
