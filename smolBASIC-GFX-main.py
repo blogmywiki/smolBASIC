@@ -267,13 +267,14 @@ sleep(500)
 # use print for text etc as it adds a newline. Use uart.write for sending control codes
 music.play(['c'])
 uart.write('\x1B[2J')       # clear screen
+# draw micro:bit logo
+uart.write('\x1B[#3;11;7;10A0;2;15;7;0;3;15;1;0;7;15;1;0;2;15;1;0;7;15;1;0;1;15;1;0;2;15;1;0;3;15;1;0;2;15;1;0;1;15;1;0;7;15;1;0;2;15;1;0;7;15;1;0;3;15;7;0;2;')
+uart.write('\x1B[#3;240;5d')  
 uart.write('\x1B[38;5;11m') # set foreground to yellow
 uart.write('\x1B[48;5;12m') # set background to blue
 print('BBC micro:bit computer system')
 uart.write('\x1B[0m')       # set default colours
-print('7167 bytes free')
 print('smolBASIC')
-# uart.write('\x1B[#100;100;50c') #     Fill a circle with center at <x0>,<y0> and radius <r>
 
 while True:
     uart.write('\n>')
@@ -342,18 +343,5 @@ while True:
         if new_line != '':
             program_list.append(new_line)
 
-
-while True:
-    if uart.any():
-#       msg_bytes = uart.readline()
-        msg_bytes = uart.read()
-        msg_str = str(msg_bytes, 'UTF-8')
-        if len(msg_str) > 0:
-            try:
-                for char in msg_str:
-                    display.show(char)
-                    uart.write(char)
-            except:
-                display.show('?')
 
 
