@@ -338,6 +338,22 @@ This draws a bar that gets longer and changes colour the louder the sound the mi
 6 again
 ```
 
+
+### Change colour depending on light and sound
+
+This draws a circle that changes colour depending on light levels and a rectangle that changes colour depending on sound levels.
+
+```
+0 repeat 200
+1 a=light
+2 ink a
+3 circle 200 200 50
+4 b=sound
+5 ink b
+6 rectangle 100 100 50 50
+7 again
+```
+
 ### Fix / to-do list
 
 - [ ] Make paper take numbers and variables like ink
