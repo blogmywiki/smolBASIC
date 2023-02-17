@@ -5,7 +5,7 @@ A very simple text-based programming language for the BBC micro:bit, written in 
 ![smolBASIC in use](https://raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/alpha-editor-screenshot-small.png)
 
 ## Tell me more, tell me more
-smolBASIC can run in the simulator in the micro:bit Python Editor https://python.microbit.org/v/beta - or on a real micro:bit connected to any serial console via USB. The serial console can be the micro:bit Python Editor in a Chrome or Edge web browser. Scroll down the page to find out about a [version with colour and simple graphics](https://github.com/blogmywiki/smolBASIC#pigfx-graphical-version).
+smolBASIC can run in the simulator in the micro:bit Python Editor https://python.microbit.org/ - or on a real micro:bit connected to any serial console via USB. The serial console can be the micro:bit Python Editor in a Chrome or Edge web browser. Scroll down the page to find out about a [version with colour and simple graphics](https://github.com/blogmywiki/smolBASIC#pigfx-graphical-version).
 
 smolBASIC could be a child's first text-based programming language, but it's also simple enough students can modify it themselves, for example adding instructions to show more images or access more sensors on the micro:bit or play more sounds. It could be used in KS3 in England to satisfy the requirement to teach a text-based language, and it could be accessible to more students than other, more complex languages.
 
@@ -13,7 +13,7 @@ Students could also translate the smolBASIC commands into other languages, to gi
 
 Its sheer simplicty also allows students to access some of the clarity of thought that comes with learning assembly language or machine code, but without having to learn hexadecimal, binary or memorise op codes.
 
-As a first text-based langauge, it aims to be as simple as possible, so it avoids punctuation like quotation marks around strings or brackets that students find hard to type.
+As a first text-based language, it aims to be as simple as possible, so it avoids punctuation like quotation marks around strings or brackets that students find hard to type.
 
 Programs have no line numbers when entered, but lines do have numbers when listed (mainly to allow 'goto' statements to work).
 
