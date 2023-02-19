@@ -293,6 +293,8 @@ This will count to 10.
 
 # smolBASIC-GFX, the graphical version
 
+![Hardware for graphical version](gfx-hardware-small.JPG)
+
 Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the micro:bit's edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx 
 This has added graphics and colour capabilities.
 
