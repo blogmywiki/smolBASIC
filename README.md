@@ -197,6 +197,13 @@ The simplest way to try out smolBASIC for yourself is to save and load `smolBASI
 - Type 'help' and press enter to see a list of instructions
 - Type commands and run them!
 
+## Simulator
+There's a very unstable and experimental simulator here: http://suppertime.co.uk/microbit/smolBASIC/demo.html 
+
+It pre-loads the smolBASIC.py program into a text editor. Press play to start and type command into the black serial console. The simulator supports some very basic physical inputs: buttons, temperature, light and sound.
+
+You can inspect and modify the source code in the text editor below the serial console, but to save your code you'd need to copy and paste it somewhere else.
+
 ## To-do list
 There's lots I could add, but I don't want to add too much - it needs to be super-simple. For example, I know my Python is shonky and inconsistent, but if it's improved it still needs to be readable by a student new to Python.
 
@@ -284,7 +291,7 @@ This will count to 10.
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
 
-## PiGFX graphical version
+# smolBASIC-GFX, the graphical version
 
 Note that `smolBASIC-GFX-main.py` is an experimental and very buggy version that instead of using serial over USB, uses serial over pins on the micro:bit's edge connector so you can use a normal dumb terminal, such as a Raspberry Pi running PiGFX https://github.com/fbergama/pigfx 
 This has added graphics and colour capabilities.
