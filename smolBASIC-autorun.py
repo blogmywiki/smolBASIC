@@ -1,5 +1,8 @@
-# A very simple programming language for the BBC micro:bit by Giles Booth
-# Intended to be run in a computer's serial console, micro:bit connected by USB.
+# Experimental version that attempts to automatically run
+# any saved smolBASIC program at start-up - in slow mode!
+# This means you can actually program the micro:bit using 
+# smolBASIC and it will run your program when unplugged from
+# a computer and attached to a battery pack, for example.
 
 from microbit import *
 import music
