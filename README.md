@@ -291,6 +291,15 @@ This will count to 10.
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
 
+# Autorun version
+
+smolBASIC-autorun.py is an experimental version that attempts to automatically run any saved smolBASIC program at start-up, but only in slow mode!
+
+This means you can actually program the micro:bit using smolBASIC and it will run your program when unplugged from a computer and attached to a battery pack, for example.
+
+I'm not sure if this feature should be folded into the main program or not. It has the disadvantge than you can't break out of any infinite loops - you would have to flash smolBASIC to the micro:bit again, and you would lose your saved code.
+
+
 # smolBASIC-GFX, the graphical version
 
 ![Hardware for graphical version](images/gfx-hardware-small.JPG)
