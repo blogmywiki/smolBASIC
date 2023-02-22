@@ -1,22 +1,39 @@
-# A very simple programming language for the BBC micro:bit by Giles Booth
-# Intended to be run in a computer's serial console, micro:bit connected by USB.
+# A first text-based programming language for children by Giles Booth.
+# It targets the BBC micro:bit using a serial console.
+# See https://github.com/blogmywiki/smolBASIC/ for more information.
 
 from microbit import *
 import music
 from random import *
 program_list = []
-global program_counter
 program_counter = -1
 variables = [None]*26
 operators = '+-/*'
 delay = 500
-global repeat_count
 repeat_count = 0
-global return_address
-
-
-
 return_address = 0
+
+def run():
+    global program_counter
+    global delay
+    global program_list
+    program_counter = -1
+    while program_counter < len(program_list):
+        program_counter += 1
+        if program_counter == len(program_list):
+            break
+        else:
+            parse(program_list[program_counter])
+            sleep(delay)
+
+def load():
+    global program_list
+    with open('data') as f:
+        joined_list = f.read()
+        program_list = joined_list.split(',')
+    for i in range(len(program_list)):
+        print(i,program_list[i])
+
 
 def help():
     print('smolBASIC')
@@ -28,21 +45,21 @@ def help():
     print('\'a=23\' assigns 23 to variable a')
     print('\'random a 99\' assigns a random number between 1 and 99 to a')
     print('\'if a>b goto 3\' jumps to line 3 if a>b.')
+    print('\'goto 0\' will go back to line 0 in a program.')
     print('You can also use < and = as comparisons.')
+    print('Loop with \'repeat 5\' ... \'again\'')
     print('\'list\' to list your program.')
     print('\'new\' to create a new program.')
     print('\'save\' stores your program in non-volatile memory.')
     print('\'load\' to load your program from non-volatile memory.')
     print('\'del 3\' deletes line 3.')    
     print('Edit line 3 by typing \'3 happy\'')
-    print('\'goto 0\' will go back to line 0 in a program.')
-    print('\'help\' to view this help.')
 
 def parse(instruction):
     global program_counter
     global repeat_count
     global return_address
-#    print(program_counter)
+    global variables
     try:
         if instruction.startswith('goto '):
             split = instruction.find(' ') + 1
@@ -71,7 +88,6 @@ def parse(instruction):
         elif instruction.startswith('beep '):
             music.play(instruction[5])
         elif instruction.startswith('random '):
-            # random a 99 puts a random number between 0 and 99 in variable a
             var_rnd = instruction[7]
             var_index = ord(var_rnd) - 97
             rnd_range = int(instruction[9:])
@@ -202,6 +218,13 @@ def parse(instruction):
             display.show('?')
     except:
         print('There\'s a mistake in your program.')
+
+try:
+    load()
+    run()
+except:
+    pass
+
 print('smolBASIC')
 print('Type \'help\' for a list of commands.')
     
@@ -240,11 +263,7 @@ while True:
         print('Program saved.')
     elif new_line == 'load':
         try:
-            with open('data') as f:
-                joined_list = f.read()
-                program_list = joined_list.split(',')
-            for i in range(len(program_list)):
-                print(i,program_list[i])
+            load()
         except:
             print('No file to load.')
     elif new_line == 'fast':
@@ -252,15 +271,7 @@ while True:
     elif new_line == 'slow':
         delay = 500
     elif new_line == 'run':
-        program_counter = -1
-        while program_counter < len(program_list):
-            program_counter += 1
-            if program_counter == len(program_list):
-                break
-            else:
-                parse(program_list[program_counter])
-                sleep(delay)
-#                display.clear() <- used to clear display after showing image, now leaves it as is
+        run()
     else:
         if new_line != '':
             program_list.append(new_line)
