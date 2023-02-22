@@ -297,8 +297,9 @@ smolBASIC-autorun.py is an experimental version that attempts to automatically r
 
 This means you can actually program the micro:bit using smolBASIC and it will run your program when unplugged from a computer and attached to a battery pack, for example.
 
-I'm not sure if this feature should be folded into the main program or not. It has the disadvantge than you can't break out of any infinite loops - you would have to flash smolBASIC to the micro:bit again, and you would lose your saved code. It also doesn't seem to work very well in the simulator, probably because of a bug in my code.
+I'm not sure if this feature should be folded into the main program or not. It has the disadvantge than you can't break out of any infinite loops - you would have to flash smolBASIC to the micro:bit again, and you would lose your saved code. 
 
+I think the benefit of being able to program the micro:bit in smolBASIC to run a self-contained program outweighs any other issues, so I will roll this feature into the main code, but probably not the graphical version (see below) as I assume with that that the micro:bit is more permanently connected to a serial console.
 
 # smolBASIC-GFX, the graphical version
 
