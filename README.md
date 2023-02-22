@@ -178,6 +178,10 @@ Save the current program to non-volatile memory with `save`
 
 Restore the saved program with `load`
 
+Any saved program will be run at start up. This means you can program the micro:bit in smolBASIC on a computer, unplug the micro:bit from the computer, attach a battery pack and the program will run. So you can create self-contained physical projects in smolBASIC.
+
+Note that the graphical version of smolBASIC (see below) does not auto-run saved code currently, because I assume the micro:bit concerned will remain tethered to a physical terminal.
+
 ## Why 'smolBASIC'?
 It's smoller than TinyBASIC.
 
@@ -291,15 +295,6 @@ This will count to 10.
 
 [![preview video](https://img.youtube.com/vi/xwxMju_L0hQ/0.jpg)](http://www.youtube.com/watch?v=xwxMju_L0hQ)]
 
-# Autorun version
-
-smolBASIC-autorun.py is an experimental version that attempts to automatically run any saved smolBASIC program at start-up, but only in slow mode!
-
-This means you can actually program the micro:bit using smolBASIC and it will run your program when unplugged from a computer and attached to a battery pack, for example.
-
-It has the disadvantge than you can't break out of any infinite loops - you would have to flash smolBASIC to the micro:bit again, and you would lose your saved code. 
-
-I think the benefit of being able to program the micro:bit in smolBASIC to run a self-contained program outweighs any other issues, so I will roll this feature into the main code, but probably not the graphical version (see below) as I assume with that that the micro:bit is more permanently connected to a serial console.
 
 # smolBASIC-GFX, the graphical version
 
