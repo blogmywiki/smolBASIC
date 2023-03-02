@@ -334,6 +334,8 @@ See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 
 ## Shapes
 
+The screen has a resolution of 640 x 480 pixels. The top left corner is 0,0. The bottom right corner is 639,479.
+
 `circle 20 30 40` draws a circle at x=20, y=30 with a radius of 40
 
 `rectangle 100 200 30 40` draws a rectangle at x=100, y=200 of width 30 and height 40
