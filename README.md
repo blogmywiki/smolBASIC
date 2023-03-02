@@ -385,6 +385,27 @@ This draws a circle that changes colour depending on light levels and a rectangl
 7 again
 ```
 
+
+
+### Colour bars
+
+```
+0 ink white
+1 rectangle 0 0 80 479
+2 ink yellow
+3 rectangle 0 80 80 479
+4 ink cyan
+5 rectangle 0 160 80 479
+6 ink green
+7 rectangle 0 240 80 479
+8 ink magenta
+9 rectangle 0 320 80 479
+10 ink red
+11 rectangle 0 400 80 479
+12 ink blue
+13 rectangle 0 480 80 479
+```
+
 ### Fix / to-do list
 
 - [ ] Make paper take numbers and variables like ink
