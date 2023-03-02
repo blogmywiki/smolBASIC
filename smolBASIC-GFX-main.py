@@ -275,6 +275,7 @@ uart.write('\x1B[48;5;12m') # set background to blue
 print('BBC micro:bit computer system')
 uart.write('\x1B[0m')       # set default colours
 print('smolBASIC')
+uart.write('\x1B[?25b')     # set cursor to blink
 
 while True:
     uart.write('\n>')
@@ -342,6 +343,5 @@ while True:
     else:
         if new_line != '':
             program_list.append(new_line)
-
 
 
