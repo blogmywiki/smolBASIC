@@ -340,6 +340,8 @@ The screen has a resolution of 640 x 480 pixels. The top left corner is 0,0. The
 
 `rectangle 100 200 30 40` draws a rectangle at x=100, y=200 of width 30 and height 40
 
+`line 0 0 639 479` draws a line from the top left hand corner of the screen to the bottom right.
+
 ### Sample program to draw random colour and size circles
 
 Sorry there's no break key, so save this before running. Enter fast mode, run it - then press the reset button on the micro:bit to break out of it.
