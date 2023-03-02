@@ -175,6 +175,27 @@ def parse(instruction):
             if h.isalpha():
                 h = str(variables[ord(h)-97])
             uart.write('\x1B[#'+x+';'+y+';'+w+';'+h+'r')
+        elif instruction.startswith('line '):
+            split = instruction.find(' ') + 1
+            xxyy = instruction[split:]
+            split = xxyy.find(' ') + 1
+            x0 = xxyy[:split].strip(' ')
+            xyy = xxyy[split:]
+            split = xyy.find(' ') + 1
+            y0 = xyy[:split].strip(' ')
+            yy = xyy[split:]
+            split = yy.find(' ') + 1
+            x1 = yy[:split].strip(' ')
+            y1 = yy[split:]
+            if x0.isalpha():
+                x0 = str(variables[ord(x0)-97])
+            if y0.isalpha():
+                y0 = str(variables[ord(y0)-97])
+            if x1.isalpha():
+                x1 = str(variables[ord(x1)-97])
+            if y1.isalpha():
+                y1 = str(variables[ord(y1)-97])
+            uart.write('\x1B[#'+x0+';'+y0+';'+x1+';'+y1+'l')
         elif len(instruction) == 5 and instruction[3] in operators and instruction[1] == '=' and ord(instruction[0]) > 96 and ord(instruction[0]) < 123 and ord(instruction[2]) > 96 and ord(instruction[2]) < 123 and ord(instruction[4]) > 96 and ord(instruction[4]) < 123:
             var1 = instruction[0]
             var2 = instruction[2]
