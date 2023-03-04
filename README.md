@@ -412,7 +412,7 @@ This draws a circle that changes colour depending on light levels and a rectangl
 
 - [ ] Make paper take numbers and variables like ink
 - [ ] Backspace needs to delete character if errors are corrected 
-- [ ] Add more graphics: lines
+- [x] Add more graphics: lines
 - [x] add rectangles
 - [ ] Add a break key - this may not be possible as `except KeyboardInterrupt:` doesn't work
 - [ ] Replace PiGFX font with custom cool font like Chicago
