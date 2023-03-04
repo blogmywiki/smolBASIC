@@ -5,7 +5,7 @@ A very simple text-based programming language for the BBC micro:bit, written in 
 ![smolBASIC in use](https://raw.githubusercontent.com/blogmywiki/smolBASIC/main/images/alpha-editor-screenshot-small.png)
 
 ## Tell me more, tell me more
-smolBASIC can run in the simulator in the micro:bit Python Editor https://python.microbit.org/ - or on a real micro:bit V2 connected to any serial console via USB. The serial console can be the micro:bit Python Editor in a Chrome or Edge web browser. Scroll down the page to find out about a [version with colour and simple graphics](https://github.com/blogmywiki/smolBASIC#pigfx-graphical-version).
+smolBASIC can run in the simulator in the micro:bit Python Editor https://python.microbit.org/ - or on a real micro:bit V2 connected to any serial console via USB. The serial console can be the micro:bit Python Editor in a Chrome or Edge web browser. Scroll down the page to find out about a [version with colour and simple graphics](https://github.com/blogmywiki/smolBASIC#smolbasic-gfx-the-graphical-version).
 
 smolBASIC could be a child's first text-based programming language, but it's also simple enough students can modify it themselves, for example adding instructions to show more images or access more sensors on the micro:bit or play more sounds. It could be used in KS3 in England to satisfy the requirement to teach a text-based language, and it could be accessible to more students than other, more complex languages.
 
