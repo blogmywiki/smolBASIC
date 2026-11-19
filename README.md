@@ -30,7 +30,7 @@ and they have written and executed a text-based program and sequence without wor
 
 Despite being so simple, it lets you save smolBASIC programs to the micro:bit's non-volatile memory, so you don't lose your work (if you remember to save it!)
 
-Read my initial blog post and watch the video here: http://www.suppertime.co.uk/blogmywiki/2021/07/simple-text-language/
+Read my initial blog post and watch the video here: https://www.suppertime.co.uk/blogmywiki/2021/07/simple-text-language/
 
 ## What's the instruction set?
 
@@ -202,7 +202,7 @@ The simplest way to try out smolBASIC for yourself is to save and load `smolBASI
 - Type commands and run them!
 
 ## Simulator
-There's a very unstable and experimental simulator here: http://suppertime.co.uk/microbit/smolBASIC/demo.html 
+There's a very unstable and experimental simulator here: https://suppertime.co.uk/microbit/smolBASIC/demo.html 
 
 It pre-loads the smolBASIC.py program into a text editor. Press play to start and type command into the black serial console. The simulator supports some very basic physical inputs: buttons, temperature, light and sound.
 
